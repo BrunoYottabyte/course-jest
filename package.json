@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest --watch",
+    "coverage": "jest --coverage --watchAll --collectCoverageFrom='src/components/**/*.{ts,tsx}' --collectCoverageFrom='!src/components/**/*.{types,stories,constants,test,spec,d}.{ts,tsx}'"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -39,6 +40,14 @@
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy",
       "^.+\\.svg$": "jest-svg-transformer"
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
     }
   }
 }
